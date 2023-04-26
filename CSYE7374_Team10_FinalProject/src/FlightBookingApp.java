@@ -3,74 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlightBooking {
-    public static void main(String[] args) {
-        // Singleton Design Pattern
-        FlightBookingSystem bookingSystem = FlightBookingSystem.getInstance();
-
-        // Factory Design Pattern
-        FlightTicketFactory ticketFactory = new FlightTicketFactory();
-        FlightTicket ticket = ticketFactory.createTicket("ABC123", "John Doe", "Economy");
-        FlightTicket ticket2 = ticketFactory.createTicket("DEF456", "Jane Smith", "Business");
-
-        // Builder Design Pattern
-        FlightTicketBuilder ticketBuilder = new FlightTicketBuilder();
-        FlightTicket ticket3 = ticketBuilder.setTicketNumber("GHI789")
-                .setPassengerName("Bob Johnson")
-                .setTicketClass("First Class")
-                .build();
-
-        // Prototype Design Pattern
-        FlightTicket ticket4 = (FlightTicket) ticket.clone();
-        ticket4.setTicketNumber("JKL012");
-
-        // Adapter Design Pattern
-        HotelBookingSystem hotelBookingSystem = new HotelBookingSystem();
-        HotelBookingAdapter hotelBookingAdapter = new HotelBookingAdapter(hotelBookingSystem);
-        FlightTicket ticket5 = hotelBookingAdapter.bookHotel("MNO345", "Alice Lee", "Economy");
-
-        // Decorator Design Pattern
-        FlightTicketDecorator ticketDecorator = new MealDecorator(new SeatDecorator(ticket));
-        ticketDecorator.displayTicketDetails();
-
-        // Composite Design Pattern
-        FlightTicketGroup ticketGroup = new FlightTicketGroup();
-        ticketGroup.addTicket(ticket);
-        ticketGroup.addTicket(ticket2);
-        ticketGroup.addTicket(ticket3);
-        ticketGroup.addTicket(ticket4);
-        ticketGroup.addTicket(ticket5);
-        ticketGroup.addTicket(ticketDecorator);
-
-        // Bridge Design Pattern
-        PaymentGateway paymentGateway = new CreditCardPaymentGateway();
-        bookingSystem.setPaymentGateway(paymentGateway);
-        bookingSystem.bookFlightTicket(ticketGroup);
-
-        // Facade Design Pattern
-        FlightBookingFacade flightBookingFacade = new FlightBookingFacade();
-        flightBookingFacade.bookFlightTicket("PQR678", "David Chen", "Business", "Credit Card");
-
-        // Strategy Design Pattern
-        PaymentStrategy paymentStrategy = new CreditCardPaymentStrategy();
-        bookingSystem.setPaymentStrategy(paymentStrategy);
-        bookingSystem.bookFlightTicket(ticketGroup);
-
-        // Command Design Pattern
-        FlightTicketBookingCommand bookingCommand = new FlightTicketBookingCommand(bookingSystem, ticketGroup);
-        FlightTicketBookingInvoker bookingInvoker = new FlightTicketBookingInvoker(bookingCommand);
-        bookingInvoker.bookFlightTicket();
-
-        // State Design Pattern
-        FlightTicketBookingContext bookingContext = new FlightTicketBookingContext();
-        bookingContext.bookFlightTicket(ticketGroup);
-        bookingContext.cancelFlightTicket();
-
-        // Observer Design Pattern
-        FlightTicketBookingObserver bookingObserver = new FlightTicketBookingObserver();
-        bookingSystem.addObserver(bookingObserver);
-        bookingSystem.bookFlightTicket(ticketGroup);
-    }
-
     // Singleton Design Pattern
     static class FlightBookingSystem {
         private static FlightBookingSystem instance = new FlightBookingSystem();
@@ -502,5 +434,73 @@ public class FlightBooking {
             ticket.displayTicketDetails();
             notifyObservers(ticket);
         }
+    }
+
+    public static void executeDemo(){
+        // Singleton Design Pattern
+        FlightBookingSystem bookingSystem = FlightBookingSystem.getInstance();
+
+        // Factory Design Pattern
+        FlightTicketFactory ticketFactory = new FlightTicketFactory();
+        FlightTicket ticket = ticketFactory.createTicket("ABC123", "John Doe", "Economy");
+        FlightTicket ticket2 = ticketFactory.createTicket("DEF456", "Jane Smith", "Business");
+
+        // Builder Design Pattern
+        FlightTicketBuilder ticketBuilder = new FlightTicketBuilder();
+        FlightTicket ticket3 = ticketBuilder.setTicketNumber("GHI789")
+                .setPassengerName("Bob Johnson")
+                .setTicketClass("First Class")
+                .build();
+
+        // Prototype Design Pattern
+        FlightTicket ticket4 = (FlightTicket) ticket.clone();
+        ticket4.setTicketNumber("JKL012");
+
+        // Adapter Design Pattern
+        HotelBookingSystem hotelBookingSystem = new HotelBookingSystem();
+        HotelBookingAdapter hotelBookingAdapter = new HotelBookingAdapter(hotelBookingSystem);
+        FlightTicket ticket5 = hotelBookingAdapter.bookHotel("MNO345", "Alice Lee", "Economy");
+
+        // Decorator Design Pattern
+        FlightTicketDecorator ticketDecorator = new MealDecorator(new SeatDecorator(ticket));
+        ticketDecorator.displayTicketDetails();
+
+        // Composite Design Pattern
+        FlightTicketGroup ticketGroup = new FlightTicketGroup();
+        ticketGroup.addTicket(ticket);
+        ticketGroup.addTicket(ticket2);
+        ticketGroup.addTicket(ticket3);
+        ticketGroup.addTicket(ticket4);
+        ticketGroup.addTicket(ticket5);
+        ticketGroup.addTicket(ticketDecorator);
+
+        // Bridge Design Pattern
+        PaymentGateway paymentGateway = new CreditCardPaymentGateway();
+        bookingSystem.setPaymentGateway(paymentGateway);
+        bookingSystem.bookFlightTicket(ticketGroup);
+
+        // Facade Design Pattern
+        FlightBookingFacade flightBookingFacade = new FlightBookingFacade();
+        flightBookingFacade.bookFlightTicket("PQR678", "David Chen", "Business", "Credit Card");
+
+        // Strategy Design Pattern
+        PaymentStrategy paymentStrategy = new CreditCardPaymentStrategy();
+        bookingSystem.setPaymentStrategy(paymentStrategy);
+        bookingSystem.bookFlightTicket(ticketGroup);
+
+        // Command Design Pattern
+        FlightTicketBookingCommand bookingCommand = new FlightTicketBookingCommand(bookingSystem, ticketGroup);
+        FlightTicketBookingInvoker bookingInvoker = new FlightTicketBookingInvoker(bookingCommand);
+        bookingInvoker.bookFlightTicket();
+
+        // State Design Pattern
+        FlightTicketBookingContext bookingContext = new FlightTicketBookingContext();
+        bookingContext.bookFlightTicket(ticketGroup);
+        bookingContext.cancelFlightTicket();
+
+        // Observer Design Pattern
+        FlightTicketBookingObserver bookingObserver = new FlightTicketBookingObserver();
+        bookingSystem.addObserver(bookingObserver);
+        bookingSystem.bookFlightTicket(ticketGroup);
     }
 }
