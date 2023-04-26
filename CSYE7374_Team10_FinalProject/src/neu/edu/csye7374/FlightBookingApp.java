@@ -1,3 +1,4 @@
+package neu.edu.csye7374;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,9 @@ public class FlightBooking {
         }
     }
 
+    public class FlightTicketComponent{
+
+    }
     // Factory Design Pattern
     static class FlightTicketFactory {
         public FlightTicket createTicket(String ticketNumber, String passengerName, String ticketClass) {
