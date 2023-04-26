@@ -34,7 +34,7 @@ public class FlightBooking {
         }
     }
 
-    public class FlightTicketComponent{
+    public interface FlightTicketComponent{
 
     }
     // Factory Design Pattern
