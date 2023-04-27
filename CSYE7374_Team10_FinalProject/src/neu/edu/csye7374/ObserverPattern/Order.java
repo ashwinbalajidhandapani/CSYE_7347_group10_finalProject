@@ -132,12 +132,12 @@ public class Order implements OrderStateAPI {
 	}
 
 
-	public void setBookList(List<MedicineAPI> medicineList) {
+	public void setMedicineList(List<MedicineAPI> medicineList) {
 		this.medicineList = medicineList;
 	}
 	
 	
-	public String getBookListString() {
+	public String getMedicineListString() {
 		StringBuilder sb = new StringBuilder();
 		for(MedicineAPI b : medicineList) {
 			sb.append(b);
