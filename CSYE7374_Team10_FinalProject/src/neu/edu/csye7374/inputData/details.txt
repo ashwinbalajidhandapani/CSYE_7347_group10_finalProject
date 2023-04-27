@@ -1,0 +1,10 @@
+
+
+1,Paracetomol,5.99,Tablet,Cipla
+2,Covid Vaccine,56.66,Injection,Pfizer
+3,Covid Vaccine,129.99,Injection,Abbott
+4,Covid Vaccine,101.74,Injection,Bharath Pharmaceuticals
+1,Paracetomol,5.99,Tablet,Cipla
+2,Covid Vaccine,56.66,Injection,Pfizer
+3,Covid Vaccine,129.99,Injection,Abbott
+4,Covid Vaccine,101.74,Injection,Bharath Pharmaceuticals
