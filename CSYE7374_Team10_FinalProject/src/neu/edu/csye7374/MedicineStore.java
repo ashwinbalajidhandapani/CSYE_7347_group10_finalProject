@@ -164,20 +164,20 @@ public class MedicineStore implements MedicalShopStateAPI {
 		
 		//Prototype Pattern to clone the object of manufacture
         System.out.println("***************************************************************************************");
-		System.out.println("Demonstrating of prototype pattern to clone the object of Author");
+		System.out.println("Demonstrating of prototype pattern to clone the object of Manufacturer");
 		Manufacturer manufacture = Manufacturer.getInstance().clone();
 		manufacture.setManufacturerName("Modena")
 		.setManufacturerRegistration(52)
 		.setManufactCounts(10);
 		
 		//Adapter Pattern to adapt manufacture legacy code with  Medicine Interface
-		ManufacturerObjectAdapter authorAdapter = new ManufacturerObjectAdapter(medicine, manufacture);
+		ManufacturerObjectAdapter manufacturerAdapter = new ManufacturerObjectAdapter(medicine, manufacture);
 		
 		System.out.println(medicine);
         System.out.println("***************************************************************************************");
 		System.out.println("Demonstrating of Adapter pattern to adapt manufacture legacy class with Medicine Interface and priting their object");
 
-		System.out.println(authorAdapter);
+		System.out.println(manufacturerAdapter);
         System.out.println("***************************************************************************************");
 
         //Demonstration of facade pattern and decorator pattern to decorate the medicine object
