@@ -80,32 +80,32 @@ public static List<String>  getFileData(String fileName) {
 	}
 		  return br;
 	  }
-    public static void writeToFile(String filename, BookBuilder bookBuilder) {
+    public static void writeToFile(String filename, MedicineBuilder medicineBuilder) {
         try {
             FileWriter fw = new FileWriter(filename, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);
-            out.println(bookBuilder.getBookId());
-            out.println(bookBuilder.getBookName());
-            out.println(bookBuilder.getBookPrice());
-            out.println(bookBuilder.getBookCategory());
-            out.println(bookBuilder.getBookAuthor());
+            out.println(medicineBuilder.getMedicineID());
+            out.println(medicineBuilder.getMedicineName());
+            out.println(medicineBuilder.getMedicinePrice());
+            out.println(medicineBuilder.getMedicineCategory());
+            out.println(medicineBuilder.getMedicineManufact());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
  
- public static void appendEntryToFile(String fileName, BookBuilder bookBuilder){
+ public static void appendEntryToFile(String fileName, MedicineBuilder medicineBuilder){
      FileWriter fr= null;
      BufferedWriter bw = null ;
      try {
           fr = new FileWriter(fileName,true);
           bw = new BufferedWriter(fr);
-          bw.append(bookBuilder.getBookId()+",");
-          bw.append(bookBuilder.getBookName()+",");
-          bw.append(bookBuilder.getBookPrice()+",");
-          bw.append(bookBuilder.getBookCategory()+",");
-          bw.append(bookBuilder.getBookAuthor()+"\n");
+          bw.append(medicineBuilder.getMedicineID()+",");
+          bw.append(medicineBuilder.getMedicineName()+",");
+          bw.append(medicineBuilder.getMedicinePrice()+",");
+          bw.append(medicineBuilder.getMedicineCategory()+",");
+          bw.append(medicineBuilder.getMedicineManufact()+"\n");
      } catch (IOException ex) {
          LOGGER.log(Level.SEVERE, "error while reading the file", ex);
      }
