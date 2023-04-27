@@ -14,16 +14,16 @@ public class Invoker {
 	}
 
    public void placeOrders(){
-	   BuyMedicineCommand buyBookCommand = BuyMedicineCommand.getInstance();
+	   BuyMedicineCommand buyMedicineCommand = BuyMedicineCommand.getInstance();
       for (Medicine order : orderList) {
-    	  System.out.println(buyBookCommand.setMedicine(order)
+    	  System.out.println(buyMedicineCommand.setMedicine(order)
          .execute());
       }
       orderList.clear();
    }
    
-   public void placeOrders(List<Medicine> bookList){
-	      for (Medicine b : bookList) {
+   public void placeOrders(List<Medicine> medicineList){
+	      for (Medicine b : medicineList) {
 	    	  orderList.add(b);
 	      }
 	      placeOrders();
@@ -31,16 +31,16 @@ public class Invoker {
    
    
    public void rentOrders(){
-	   RentEquipmentCommand rentBookCommand = RentEquipmentCommand.getInstance();
+	   RentEquipmentCommand rentMedicineCommand = RentEquipmentCommand.getInstance();
       for (Medicine order : orderList) {
-    	  System.out.println(rentBookCommand.setMedicine(order)
+    	  System.out.println(rentMedicineCommand.setMedicine(order)
          .execute());
       }
       orderList.clear();
    }
    
-   public void rentOrders(List<Medicine> bookList){
-	      for (Medicine b : bookList) {
+   public void rentOrders(List<Medicine> medicineList){
+	      for (Medicine b : medicineList) {
 	    	  orderList.add(b);
 	      }
 	      rentOrders();
