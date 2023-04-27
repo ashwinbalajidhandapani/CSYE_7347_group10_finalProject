@@ -15,7 +15,7 @@ public enum MedicineCategory {
 		return Stream.of(MedicineCategory.values()).map(MedicineCategory::name).collect(Collectors.toList());
 	}
 
-	public static String[] getBookCategoryArray() {
+	public static String[] getMedicineCategoryArray() {
 
 		return Arrays.stream(MedicineCategory.values()).map(MedicineCategory::name).toArray(String[]::new);
 	}
