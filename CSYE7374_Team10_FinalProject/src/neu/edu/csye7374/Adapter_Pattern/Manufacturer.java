@@ -4,7 +4,7 @@ package neu.edu.csye7374.Adapter_Pattern;
 public class Manufacturer implements Cloneable{
 	
 	private String manufacturerName;
-	private int manufacturerRegistrationAge;
+	private int manufacturerRegistrationId;
 	private int manufacturerProductCount;
 	private static Manufacturer instance;
 	
@@ -22,7 +22,7 @@ public class Manufacturer implements Cloneable{
 	private Manufacturer(String manufacturerName, int manufacturerRegistrationAge, int manufacturerProductCount) {
 		super();
 		this.manufacturerName = manufacturerName;
-		this.manufacturerRegistrationAge = manufacturerRegistrationAge;
+		this.manufacturerRegistrationId = manufacturerRegistrationAge;
 		this.manufacturerProductCount = manufacturerProductCount;
 	}
 	
@@ -33,11 +33,11 @@ public class Manufacturer implements Cloneable{
 		this.manufacturerName = manufacturerName;
 		return this;
 	}
-	public int getManufacturerRegistrationAge() {
-		return manufacturerRegistrationAge;
+	public int getManufacturerRegistrationId() {
+		return manufacturerRegistrationId;
 	}
-	public Manufacturer setAge(int age) {
-		this.manufacturerRegistrationAge = manufacturerRegistrationAge;
+	public Manufacturer setManufacturerRegistrationId(int id) {
+		this.manufacturerRegistrationId = manufacturerRegistrationId;
 		return this;
 	}
 	public int getManufacturerProductCount() {
@@ -49,7 +49,7 @@ public class Manufacturer implements Cloneable{
 	}
 	@Override
 	public String toString() {
-		return "Manufacturer [ManufacturerName=" + manufacturerName + ", ManufacturerRegistrationAge=" + manufacturerRegistrationAge + ", ManufacturerProductCount=" + manufacturerProductCount + "]";
+		return "Manufacturer [ManufacturerName=" + manufacturerName + ", ManufacturerRegistrationAge=" + manufacturerRegistrationId + ", ManufacturerProductCount=" + manufacturerProductCount + "]";
 	}
 
 	

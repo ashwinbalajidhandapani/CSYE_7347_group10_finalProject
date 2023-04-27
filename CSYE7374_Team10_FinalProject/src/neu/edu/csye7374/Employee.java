@@ -1,25 +1,26 @@
 package neu.edu.csye7374;
 
-import neu.csye7374.src.Builder.EmployeeBuilder;
+
+import neu.edu.csye7374.Builder.EmployeeBuilder;
 
 public class Employee extends Person {
-	private double wage;
+	private int id;
 
 	public Employee(EmployeeBuilder builder) {
-		super(builder.getId(),builder.getAge(),builder.getFirstName(), builder.getLastName());
-		this.wage=builder.getWage();
+		super(builder.getId(),builder.getManufacturerRegistrationId(),builder.getFirstName(), builder.getLastName());
+		this.id=builder.getManufacturerRegistrationId();
 	}
 	
-	public double getWage() {
-		return wage;
+	public int getWage() {
+		return id;
 	}
 
-	public void setWage(double wage) {
-		this.wage = wage;
+	public void setWage(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "\nEmployee ["+ super.toString() +", wage= "+ wage +"]";
+		return "\nEmployee ["+ super.toString() +", Id= "+ id +"]";
 	}
 }

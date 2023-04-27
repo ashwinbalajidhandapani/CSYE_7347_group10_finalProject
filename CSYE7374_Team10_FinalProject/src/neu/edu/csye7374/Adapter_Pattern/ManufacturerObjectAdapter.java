@@ -1,5 +1,7 @@
 package neu.edu.csye7374.Adapter_Pattern;
 
+import neu.edu.csye7374.MedicineAPI;
+
 public class ManufacturerObjectAdapter implements MedicineAPI{
 	
 	private Manufacturer manufacturer;
@@ -17,27 +19,28 @@ public class ManufacturerObjectAdapter implements MedicineAPI{
 	}
 
 	@Override
-	public int getManufacturerProductCount() {
+	public Object getMedicineManufact() {
 		// TODO Auto-generated method stub
+		return Manufacturer.class.cast(manufacturer);
+	}
+
+	@Override
+	public int manufacturerProductCount() {
 		return manufacturer.getManufacturerProductCount();
 	}
 
 	@Override
-	public Object getManufacturerName() {
-		// TODO Auto-generated method stub
-		return Manufacturer.class.cast(manufacturer);
+	public double getMedicinePrice() {
+		return medicine.getMedicinePrice();
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "[" + manufacturer + "], [medicine=" + medicine + "]";
 	}
 
-	@Override
-	public double getPrice() {
-		// TODO Auto-generated method stub
-		return medicine.getPrice();
-	}
 	
 	
 }

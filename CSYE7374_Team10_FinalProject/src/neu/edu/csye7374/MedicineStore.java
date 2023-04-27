@@ -30,7 +30,7 @@ public class MedicineStore implements MedicalShopStateAPI {
     private List<Medicine> itemList = new ArrayList<>();
     private List<Person> personList = new ArrayList<>();
     public static DiscountStrategy usingStrategy = DiscountStrategy.NONE;
-    private static final String FILE_NAME = "src/neu/edu/csye7374/inputData/details.txt";
+    private static final String FILE_NAME = "CSYE7374_Team10_FinalProject/src/neu/edu/csye7374/inputData/details.txt";
 	
 	private MedicalShopStateAPI openState = new OpenState(this);
 	private MedicalShopStateAPI stockState = new StockState(this);
@@ -167,8 +167,7 @@ public class MedicineStore implements MedicalShopStateAPI {
 		System.out.println("Demonstrating of prototype pattern to clone the object of Manufacturer");
 		Manufacturer manufacture = Manufacturer.getInstance().clone();
 		manufacture.setManufacturerName("Modena")
-		.setManufacturerRegistration(52)
-		.setManufactCounts(10);
+		.setManufacturerRegistrationId(52).setNoOfManufacturerProductCount(10);
 		
 		//Adapter Pattern to adapt manufacture legacy code with  Medicine Interface
 		ManufacturerObjectAdapter manufacturerAdapter = new ManufacturerObjectAdapter(medicine, manufacture);

@@ -38,11 +38,11 @@ public class EmployeeBuilder implements BuilderAPI<Employee>{
 		this.lastName = lastName;
 	}
 
-	public int getManufacturerRegistration() {
+	public int getManufacturerRegistrationId() {
 		return manufacturerRegistrationAge;
 	}
 
-	public void setManufacturerRegistration(int manufacturerRegistrationAge) {
+	public void setManufacturerRegistrationId(int manufacturerRegistrationAge) {
 		this.manufacturerRegistrationAge = manufacturerRegistrationAge;
 	}
 
@@ -54,7 +54,7 @@ public class EmployeeBuilder implements BuilderAPI<Employee>{
 		this.wage = wage;
 	}
 
-	public EmployeeBuilder(int id,int manufacturerRegistrationAge,String firstName, String lastName, double wage) {
+	public EmployeeBuilder(int id,int manufacturerRegistrationId,String firstName, String lastName, double wage) {
 		super();
 		this.id=id;
 		this.firstName = firstName;
